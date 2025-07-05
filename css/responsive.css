@@ -623,3 +623,34 @@ header .quotes a {
 }
 @media(max-height: 700px) {
 }
+
+@media (max-width: 767px) {
+  .latest-work .filter-home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+.latest-work .filter-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.latest-work .filter-home li {
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px 8px;
+    position: relative;
+  }
+
+ .latest-work .filter-home li:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -10px;
+    color: #ccc; /* istersen değiştir */
+  }

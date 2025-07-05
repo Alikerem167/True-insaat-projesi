@@ -2166,3 +2166,14 @@ footer button{
 	width:60%;
 	margin:0 auto;
 }
+
+.testi .testi-two .media {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section.blog .btn.font-pt {
+  visibility: hidden;
+}
