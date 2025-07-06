@@ -1,3 +1,22 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name    = htmlspecialchars($_POST['name']);
+  $email   = htmlspecialchars($_POST['email']);
+  $subject = htmlspecialchars($_POST['company']);
+  $message = htmlspecialchars($_POST['message']);
+
+  $to      = "akeremertas@gmail.com"; // ← BURAYA kendi e-postanı yaz
+  $headers = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
+
+  $fullMessage = "Ad: $name\nE-posta: $email\nKonu: $subject\n\nMesaj:\n$message";
+
+  if (mail($to, "İletişim Formu: $subject", $fullMessage, $headers)) {
+    echo "1";
+  } else {
+    echo "0";
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,7 +25,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="M_Adnan">
-<title>True Yapı İnşaat – Güvenli ve Modern Yapılar</title>
+<title>True Yapı – Güvenli ve Modern Yapılar</title>
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
@@ -121,7 +140,7 @@
                   <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
                   
                   <!-- FORM -->
-                  <form role="form" id="contact_form" class="contact-form" method="post" onSubmit="return false">
+                  <form role="form" id="contact_form" class="contact-form" method="post">
                     <ul class="row">
                       <li class="col-sm-12">
                         <label>
@@ -294,7 +313,7 @@
   
   <!-- RIGHTS -->
   <div class="rights">
-    <p> © 2025 True Yapı İnşaat. Tüm Hakları Saklıdır. </p>
+    <p> © 2025 True Yapı. Tüm Hakları Saklıdır. </p>
   </div>
 </div>
 <script src="js/jquery-1.11.0.min.js"></script> 
